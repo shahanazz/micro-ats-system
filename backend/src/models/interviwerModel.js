@@ -22,4 +22,6 @@ const interviewerSchema = new mongoose.Schema({
     timestamps : true,
 }) 
 
-module.exports = mongoose.model('Interviewer' , interviewerSchema);
+const Interviewer =  mongoose.model('Interviewer' , interviewerSchema);
+
+export default Interviewer;

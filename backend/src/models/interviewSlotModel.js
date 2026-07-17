@@ -28,4 +28,7 @@ const interviewSlotSchema = new mongoose.Schema({
     timestamps : true,
 });
 
-module.exports = mongoose.model('InterviewSlot' , interviewSlotSchema);
+
+const interviewSlot =  mongoose.model('InterviewSlot' , interviewSlotSchema);
+
+export default interviewSlot;

@@ -25,17 +25,12 @@ const candidateSchema = mongoose.Schema({
         ],
         default : "Applied"
     },
-
-    // interviewSlots : [
-    //     {
-    //         type : mongoose.Types.ObjectId,
-    //         ref : "InterviewSlot",
-    //     }
-    // ]
 },
 {
     timestamp : true,
 });
 
 
-module.exports = mongoose.model('Candidate', candidateSchema);
+const Candidate = mongoose.model("Candidate", candidateSchema);
+
+export default Candidate;
