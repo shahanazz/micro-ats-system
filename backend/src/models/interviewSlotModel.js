@@ -7,7 +7,7 @@ const interviewSlotSchema = new mongoose.Schema({
         required : true,
     },
 
-    interviwerId : {
+    interviewerId : {
         type : mongoose.Schema.Types.ObjectId,
         ref : "Interviewer",
         required : true

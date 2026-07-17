@@ -4,7 +4,10 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 import { connectDB } from './src/config/db.js';
-
+import interviewerRoute from './src/routes/interviewerRoutes.js';
+import candidateRoute from './src/routes/candidateRoutes.js';
+import scheduleRoute from './src/routes/scheduleRoutes.js';
+   
 const app = express();
 const PORT = process.env.PORT || 7000;
 
@@ -12,11 +15,9 @@ connectDB();
 
 app.use(express.json());
 
-
-app.get('/' , (req,res) =>{
-    res.send('Hello warrior, you will get this job for sure!!');
-})
-
+app.use('/api' , interviewerRoute);
+app.use('/api/candidates', candidateRoute);
+app.use('/api' , scheduleRoute);
 
 
 app.listen(PORT, () =>{
