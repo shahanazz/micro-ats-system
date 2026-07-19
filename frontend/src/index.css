@@ -1,0 +1,6 @@
+@import "tailwindcss";
+
+:root{
+  --primary : rgba(170, 59, 255, 0.5);
+}
+
