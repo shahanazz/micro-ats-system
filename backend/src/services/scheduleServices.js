@@ -70,14 +70,15 @@ export const createSchedule = async ({
         }
     }).populate('candidateId' , 'name');
 
-    if(conflict){
-        throw {
-            status : 409,
-            message : "Interviewer Already Booked.",
-            conflictCandidate : conflict.candidateId.name,
-        }
-    }
+   if(conflict){
 
+    throw {
+        status : 409,
+        message : `Interviewer is already booked with ${conflict.candidateId.name}.`,
+        conflictCandidate : conflict.candidateId.name,
+    };
+
+}
     // create Interview
 
     const interview = await interviewSlot.create({
