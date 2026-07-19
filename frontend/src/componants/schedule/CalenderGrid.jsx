@@ -1,7 +1,8 @@
 import { TimeSlot } from "./TimeSlot";
 import { CalendarDays, ChevronLeft, ChevronRight } from "lucide-react";
-import { getInterviewers } from "../services/interviewerService";
+import { getInterviewers } from "../../services/interviewerService";
 import { useEffect, useState } from "react";
+import { workingHours } from "../../constants/constants.js";
 
 export const CalendarGrid = ({ schedules }) => {
   const [interviewers, setInterviewers] = useState([]);
@@ -28,17 +29,7 @@ export const CalendarGrid = ({ schedules }) => {
     }
   };
 
-  const workingHours = [
-    "09:00",
-    "10:00",
-    "11:00",
-    "12:00",
-    "13:00",
-    "14:00",
-    "15:00",
-    "16:00",
-    "17:00",
-  ];
+ 
 
   const filteredSchedules = schedules.filter((schedule) => {
     return (

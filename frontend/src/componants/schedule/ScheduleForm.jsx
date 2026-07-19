@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { getInterviewers } from "../services/interviewerService.js";
-import { scheduleInterview } from "../services/scheduleService.js";
+import { getInterviewers } from "../../services/interviewerService.js";
+import { scheduleInterview } from "../../services/scheduleService.js";
 import toast from "react-hot-toast";
 
 export const ScheduleForm = ({ selectedCandidate, fetchSchedules }) => {

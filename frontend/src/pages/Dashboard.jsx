@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { CalendarGrid } from "../componants/CalenderGrid";
-import { ScheduleForm } from "../componants/ScheduleForm";
-import { CandidateList } from "../componants/CandidateList";
-import { Sidebar } from "../componants/Sidebar";
-import { Navbar } from "../componants/Navbar";
-import { StatCard } from "../componants/StatCard";
+import { CalendarGrid } from "../componants/schedule/CalenderGrid.jsx";
+import { ScheduleForm } from "../componants/schedule/ScheduleForm.jsx";
+import { CandidateList } from "../componants/candidate/CandidateList";
+import { Sidebar } from "../componants/commen/Sidebar.jsx";
+import { Navbar } from "../componants/commen/Navbar.jsx";
+import { StatCard } from "../componants/commen/StatCard.jsx";
 import { getSchedule } from "../services/scheduleService.js";
 
 
@@ -17,9 +17,9 @@ export const Dashboard = () => {
     try {
       const response = await getSchedule();
 
-      console.log("Response:", response);
-      console.log("Schedules:", response.data);
-      console.log("Is Array:", Array.isArray(response.data));
+      // console.log("Response:", response);
+      // console.log("Schedules:", response.data);
+      // console.log("Is Array:", Array.isArray(response.data));
 
       setSchedules(response.data);
     } catch (error) {

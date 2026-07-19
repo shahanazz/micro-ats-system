@@ -6,12 +6,9 @@ export const getCandidates = async () => {
 };
 
 export const updateCandidateStatus = async (id, status) => {
-  const response = await api.patch(
-    `/candidates/${id}/status`,
-    {
-      status,
-    }
-  );
+  const response = await api.patch(`/candidates/${id}/status`, {
+    status,
+  });
 
   return response.data;
 };

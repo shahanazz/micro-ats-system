@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { Search } from "lucide-react";
-import { CandidateCard }  from "./CandidateCard";
+import { CandidateCard }  from "../candidate/CandidateCard.jsx";
 import { getCandidates, updateCandidateStatus
- } from "../services/candidateService.js";
+ } from "../../services/candidateService.js";
 
 
 export const CandidateList = ({ selectedCandidate,
