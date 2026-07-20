@@ -54,7 +54,7 @@ npm start
 The application will be available at:
 
 ```
-http://localhost:5173
+http://localhost:5000
 ```
 
 ## Frontend setup
