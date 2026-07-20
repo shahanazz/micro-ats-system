@@ -1,13 +1,16 @@
 # Micro-ATS – Smart Interview Scheduler
 
-A Full-Stack Interview sheduling application build with MERN stack that privents interviewer scheduling conflicts.
+A Full-Stack Interview Scheduling application built with the MERN stack that prevents interviewer scheduling conflicts.
 
 ## Business Rules
 
-- An interviewer cannot have overlapping interviews.
-- Conflicting requests return HTTP 409.
-- Interview times are stored in UTC.
-- The frontend renders times in the user's local timezone.
+- An interviewer cannot have overlapping interview schedules.
+- The same interview cannot be scheduled more than once.
+- Scheduling conflicts return **HTTP 409 (Conflict)**.
+- Interview times are stored in **UTC**.
+- The frontend displays interview times in the user's local timezone.
+- Only available interviewers can be selected when scheduling an interview.
+- Candidates and interviewers must exist before an interview can be scheduled.
 
 ![Dashboard](frontend/src/assets/dashboard.png)
 
@@ -29,7 +32,8 @@ Backend
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/shahanazz/micro-ats-system
+git clone https://github.com/shahanazz/micro-ats-system.git
+
 ```
 
 ### 2. Navigate into the project
@@ -39,10 +43,13 @@ cd backend
 ```
 
 
-## 3. Environment Variables
+### 3. Configure Environment Variables
+
+Create a `.env` file inside the `backend` folder:
+
 ```env
 PORT=5000
-MONGODB_URI=
+MONGODB_URI=<your_mongodb_connection_string>
 ```
 
 ### 4. Install dependencies
