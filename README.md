@@ -68,7 +68,7 @@ cd frontend
 
 ```bash
 npm install
-npm start
+npm run dev
 ```
 
 The application will be available at:
