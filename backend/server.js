@@ -27,6 +27,6 @@ app.use('/api' , scheduleRoute);
 
 
 app.listen(PORT, () =>{
-    console.log(`Server starts on PORT : https://localhost:${PORT} `);
+    console.log(`Server starts on PORT : https://localhost:${PORT} `);   
     
 })
