@@ -1,6 +1,6 @@
 import { api } from "./api";
 
 export const getInterviewers = async () => {
-  const response = await api.get("/interviewers");
+  const response = await api.get("/api/interviewers");
   return response.data.data;
 };
