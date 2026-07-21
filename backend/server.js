@@ -22,11 +22,11 @@ app.use(
 app.use(express.json());
 
 app.use('/api' , interviewerRoute);
-app.use('/api/candidates', candidateRoute);
+app.use('/api/candidates', candidateRoute);     
 app.use('/api' , scheduleRoute);
 
 
 app.listen(PORT, () =>{
-    console.log(`Server starts on PORT : https://localhose:${PORT} `);
+    console.log(`Server starts on PORT : https://localhost:${PORT} `);
     
 })

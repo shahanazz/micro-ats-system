@@ -29,7 +29,6 @@ export const CalendarGrid = ({ schedules }) => {
     }
   };
 
- 
 
   const filteredSchedules = schedules.filter((schedule) => {
     return (
@@ -53,6 +52,8 @@ export const CalendarGrid = ({ schedules }) => {
             View interviewer availability and booked interviews
           </p>
         </div>
+
+
 
         <div className="flex items-center gap-2 self-end sm:self-auto">
           <button className="text-xs font-semibold px-4 py-2.5 rounded-xl border border-slate-200 text-slate-600 hover:bg-purple-50 hover:border-purple-200 hover:text-purple-700 transition-all active:scale-[0.98]">
@@ -102,7 +103,19 @@ export const CalendarGrid = ({ schedules }) => {
     
       <div className="mt-6 flex-1 flex flex-col rounded-2xl border border-slate-100 bg-slate-50/30 p-4 shadow-inner">
         <div className="space-y-2.5 max-h-[440px] overflow-y-auto pr-1 flex-1 scrollbar-thin scrollbar-thumb-slate-200">
-          {workingHours.map((hour) => {
+          { filteredSchedules.length === 0 ? (
+               <div className="rounded-xl border border-dashed border-slate-300 bg-slate-50 px-5 py-8 text-center">
+      <h3 className="text-lg font-semibold text-slate-700">
+        No Interviews Scheduled
+      </h3>
+
+      <p className="mt-2 text-sm text-slate-500">
+        This interviewer has no interviews scheduled for the selected date.
+      </p>
+    </div>
+          ) : 
+          (
+                 workingHours.map((hour) => {
             const bookedSchedule = filteredSchedules.find((schedule) => {
               const start = new Date(schedule.startTime);
               const scheduleHour =
@@ -113,7 +126,9 @@ export const CalendarGrid = ({ schedules }) => {
             return (
               <TimeSlot key={hour} time={hour} schedule={bookedSchedule} />
             );
-          })}
+          })
+          )
+        }
         </div>
       </div>
     </section>

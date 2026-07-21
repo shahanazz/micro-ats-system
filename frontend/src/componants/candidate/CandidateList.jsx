@@ -1,22 +1,22 @@
 import { useEffect, useState } from "react";
 import { Search } from "lucide-react";
-import { CandidateCard }  from "../candidate/CandidateCard.jsx";
-import { getCandidates, updateCandidateStatus
- } from "../../services/candidateService.js";
+import { CandidateCard } from "../candidate/CandidateCard.jsx";
+import {
+  getCandidates,
+  updateCandidateStatus,
+} from "../../services/candidateService.js";
 
-
-export const CandidateList = ({ selectedCandidate,
-    setSelectedCandidate }) => {
+export const CandidateList = ({ selectedCandidate, setSelectedCandidate }) => {
   const [candidates, setCandidates] = useState([]);
   const [search, setSearch] = useState("");
 
   const filteredCandidates = candidates.filter((candidate) =>
-    candidate.name.toLowerCase().includes(search.toLowerCase())
+    candidate.name.toLowerCase().includes(search.toLowerCase()),
   );
 
   useEffect(() => {
     fetchCandidates();
-  } , []);
+  }, []);
 
   const fetchCandidates = async () => {
     try {
@@ -25,38 +25,32 @@ export const CandidateList = ({ selectedCandidate,
 
       setCandidates(data);
     } catch (error) {
-      console.error(error); 
+      console.error(error);
     }
-  }
+  };
 
-const handleStatusChange = async (candidateId, newStatus) => {
-  try {
-    await updateCandidateStatus(candidateId, newStatus);
+  const handleStatusChange = async (candidateId, newStatus) => {
+    try {
+      await updateCandidateStatus(candidateId, newStatus);
 
-    setCandidates((prev) =>
-      prev.map((candidate) =>
-        candidate._id === candidateId
-          ? { ...candidate, status: newStatus }
-          : candidate
-      )
-    );
-  } catch (error) {
-    console.error(error);
-  }
-};
+      setCandidates((prev) =>
+        prev.map((candidate) =>
+          candidate._id === candidateId
+            ? { ...candidate, status: newStatus }
+            : candidate,
+        ),
+      );
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   return (
     <section className="col-span-3 rounded-xl bg-white border p-5 flex flex-col h-[650px]">
-
-      <h2 className="text-lg font-semibold mb-4">
-        Candidates
-      </h2>
+      <h2 className="text-lg font-semibold mb-4">Select Candidate</h2>
 
       <div className="relative mb-5">
-        <Search
-          className="absolute left-3 top-3 text-gray-400"
-          size={18}
-        />
+        <Search className="absolute left-3 top-3 text-gray-400" size={18} />
 
         <input
           type="text"
@@ -68,21 +62,24 @@ const handleStatusChange = async (candidateId, newStatus) => {
       </div>
 
       <div className="flex-1 overflow-y-auto space-y-3">
-
-        {filteredCandidates.map((candidate) => (
-          <CandidateCard
-            key={candidate._id}
-            candidate={candidate}
-            selected={selectedCandidate?._id === candidate._id}
-            onStatusChange={handleStatusChange}
-            onSelect={setSelectedCandidate}
-          />
-        ))}
-
+        {filteredCandidates.length > 0 ? (
+          filteredCandidates.map((candidate) => (
+            <CandidateCard
+              key={candidate._id}
+              candidate={candidate}
+              selected={selectedCandidate?._id === candidate._id}
+              onStatusChange={handleStatusChange}
+              onSelect={setSelectedCandidate}
+            />
+          ))
+        ) : (
+            <div className="rounded-lg border border-dashed border-gray-300 bg-gray-50 p-5">
+      <h3 className="text-base font-semibold text-gray-700">
+        No Candidates Found
+      </h3>
+    </div>
+        )}
       </div>
     </section>
   );
 };
-
-
-

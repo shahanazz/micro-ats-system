@@ -12,6 +12,6 @@ export const interviewers = [
   {
     name: "Ashok Kumar",
     email: "ashokkumar@gmail.com",
-    department : "Devops"
+    department : "HR"
   },
 ];

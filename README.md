@@ -52,7 +52,17 @@ PORT=5000
 MONGODB_URI=<your_mongodb_connection_string>
 ```
 
-### 4. Install dependencies
+### 4. Seed the Database
+
+Run the seed script to populate the database with sample interviewers and candidates.
+
+```bash
+npm run seed
+```
+
+> **Note:** The application requires the seeded interviewer data. Run this command before starting the backend for the first time.
+
+### 5. Install dependencies
 
 ```bash
 npm install
@@ -64,14 +74,14 @@ The application will be available at:
 http://localhost:5000
 ```
 
-## Frontend setup
+## 6. Frontend setup
 
 ```bash
 cd ..
 cd frontend
 ```
 
-### 5. Install dependencies
+### 7. Install dependencies
 
 ```bash
 npm install

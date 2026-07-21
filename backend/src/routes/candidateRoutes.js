@@ -6,7 +6,7 @@ import {
   
 const router = express.Router();
 
-router.get('/' , getCandidates );
+router.get('/' , getCandidates);
 router.patch('/:id/status', updateCandidateStatus)
 
 export default router;
