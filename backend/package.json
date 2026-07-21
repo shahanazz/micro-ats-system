@@ -6,11 +6,11 @@
   "author": "",
   "type": "module",
   "main": "server.js",
-  "scripts": {
-     "dev": "nodemon src/server.js",
-    "start": "node src/server.js",
-    "seed": "node src/seeds/index.js"
-  },
+ "scripts": {
+  "dev": "nodemon server.js",
+  "start": "node server.js",
+  "seed": "node src/seeds/index.js"
+},
   "dependencies": {
     "cors": "^2.8.6",
     "dotenv": "^17.4.2",
