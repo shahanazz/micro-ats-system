@@ -16,9 +16,13 @@ connectDB();
 
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: [
+      "http://localhost:5173",
+      "https://micro-ats-system.vercel.app",
+    ],
   })
 );
+
 app.use(express.json());
 
 app.use('/api' , interviewerRoute);
