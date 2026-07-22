@@ -55,6 +55,16 @@ export const ScheduleForm = ({ selectedCandidate, fetchSchedules }) => {
     const start = new Date(`${formData.date}T${formData.startTime}`);
     const end = new Date(`${formData.date}T${formData.endTime}`);
 
+    if (start >= end) {
+  toast.error("Invalid time.");
+  return;
+}
+
+if (start.getHours() < 9 || end.getHours() > 17) {
+  toast.error("Interview must be between 9:00 AM and 5:00 PM.");
+  return;
+}
+
     const payload = {
       candidateId: selectedCandidate._id,
       interviewerId: formData.interviewerId,
